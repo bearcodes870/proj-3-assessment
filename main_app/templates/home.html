@@ -11,7 +11,9 @@
 
 <h1>Wacky Widgets</h1>
 
-{% if widgets.count %}
+{% comment %} <table>
+    <thead>
+        <tr><th> {% endcomment %}
     {% for widget in widgets.all %}
         <div class="card">
           <div class="card-content">
