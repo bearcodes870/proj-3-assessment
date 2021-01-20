@@ -26,7 +26,7 @@
             <td>{{widgets.quantity}}</td>
             <td>
                 <form method="POST" action="{% url "widgets_delete" widgets.id %}">
-                    {% csrf_token %}<input type="submit" value="DELETE">
+                    {% csrf_token %}<input type="submit" value="X">
                 </form>
         </tbody>
         {% endfor %}
