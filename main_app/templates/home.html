@@ -11,28 +11,23 @@
 
 <h1>Wacky Widgets</h1>
 
-{% comment %} <table>
-    <thead>
-        <tr><th> {% endcomment %}
-    {% for widget in widgets.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span>
-          </div>
-          <div class="card-action">
-            <form action="" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
+<table class="striped">
+    {% if widgets.count %}
+        {% for widgets in widgets.all %}
+        <thead>
+            <tr><th>Desc</th><th>Quantity</th></tr>
+            </thead>
+        <tbody>
+            <tr>
+            <td>{{widgets.description}}</td>
+            <td>{{widgets.quantity}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
     {% else %}
-      <h3>No Widgets</h3>
-      <hr/>
+        <h5> No Widgets Exist</h5>
+        <hr/>
     {% endif %}
-  
+</table>
 </body>
 </html>
