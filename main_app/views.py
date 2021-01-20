@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
-from django.views.generic import  DetailView
+from django.views.generic.edit import CreateView, DeleteView
 from .models import Widget
 from .forms import WidgetForm
 
@@ -16,4 +15,8 @@ def home(request):
 class WidgetCreate(CreateView):
     model = Widget
     fields = ['description', 'quantity']
+    success_url = '/'
+
+class WidgetDelete(DeleteView):
+    model = Widget
     success_url = '/'

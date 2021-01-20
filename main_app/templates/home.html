@@ -15,12 +15,13 @@
     {% if widgets.count %}
         {% for widgets in widgets.all %}
         <thead>
-            <tr><th>Desc</th><th>Quantity</th></tr>
+            <tr><th>Desc</th><th>Quantity</th><th>Delete</th</tr>
             </thead>
         <tbody>
             <tr>
             <td>{{widgets.description}}</td>
             <td>{{widgets.quantity}}</td>
+            <td><a href="{% url 'widgets_delete' widgets.id %}">X</a></td>
             </tr>
         </tbody>
         {% endfor %}
@@ -31,14 +32,6 @@
 </table>
 
 <div><a href="{% url 'widgets_create' %}">Add A Widget</a></div>
-
- <form action="" method="post">
-    {% csrf_token %}
-    <table>
-      {{ widget_form.as_table }}
-    </table>
-    <input type="submit" value="Submit!" class="btn">
-  </form>
 
 </body>
 </html>
